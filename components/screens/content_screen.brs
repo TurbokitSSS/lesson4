@@ -7,7 +7,7 @@ sub onFeedChanged(obj)
     feed = obj.getData()
     m.header.text = feed.title
     postercontent = createObject("roSGNode","ContentNode")
-    for each item in feed.items
+    for each item in feed.results
         node = createObject("roSGNode","ContentNode")
         node.streamformat = item.streamformat
         node.title = item.title

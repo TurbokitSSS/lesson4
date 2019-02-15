@@ -1,25 +1,34 @@
 function init()
-	? "[home_scene] init"
-	m.category_screen = m.top.findNode("category_screen")
-	m.content_screen = m.top.findNode("content_screen")
+  ? "[home_scene] init"
+  m.category_screen = m.top.findNode("category_screen")
+  m.content_screen = m.top.findNode("content_screen")
 
-	m.category_screen.observeField("category_selected", "onCategorySelected")
-	m.category_screen.setFocus(true)
+  m.category_screen.observeField("category_selected", "onCategorySelected")
+  m.category_screen.setFocus(true)
 end function
 
 
 function onKeyEvent(key, press) as Boolean
 	? "[home_scene] onKeyEvent", key, press
+	if key = "back" and press
+		if m.content_screen.visible
+			m.content_screen.visible=false
+			m.category_screen.visible=true
+			m.category_screen.setFocus(true)
+			return true
+		end if
+	end if
   return false
 end function
+
 sub onCategorySelected(obj)
-    ? "onCategorySelected field: ";obj.getField()
-    ? "onCategorySelected data: ";obj.getData()
-    list = m.category_screen.findNode("category_list")
-    ? "onCategorySelected checkedItem: ";list.checkedItem
-    ? "onCategorySelected selected ContentNode: ";list.content.getChild(obj.getData())
-    item = list.content.getChild(obj.getData())
-    loadFeed(item.feed_url)
+  ? "onCategorySelected field: ";obj.getField()
+  ? "onCategorySelected data: ";obj.getData()
+  list = m.category_screen.findNode("category_list")
+  ? "onCategorySelected checkedItem: ";list.checkedItem
+  ? "onCategorySelected selected ContentNode: ";list.content.getChild(obj.getData())
+  item = list.content.getChild(obj.getData())
+  loadFeed(item.feed_url)
 end sub
 
 sub loadFeed(url)
@@ -30,13 +39,13 @@ sub loadFeed(url)
 end sub
 
 sub onFeedResponse(obj)
-	response = obj.getData()
-	data = parseJSON(response)
-	if data <> Invalid and data.items <> invalid
-        m.category_screen.visible = false
-        m.content_screen.visible = true
-		m.content_screen.feed_data = data
-	else
-		? "FEED RESPONSE IS EMPTY!"
-	end if
+  response = obj.getData()
+  data = parseJSON(response)
+  if data <> invalid and data.results <> invalid
+    m.category_screen.visible = false
+    m.content_screen.visible = true
+    m.content_screen.feed_data = data
+  else
+    ? "FEED RESPONSE IS EMPTY!"
+  end if
 end sub

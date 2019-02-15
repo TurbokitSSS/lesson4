@@ -17,11 +17,11 @@
         <PosterGrid
           id="content_grid"
           translation="[100,175]"
-          basePosterSize="[500,280]"
+          basePosterSize="[185,278]"
           itemSpacing="[110,110]"
           caption1NumLines="1"
           caption2NumLines="1"
-          numColumns="3"
+          numColumns="4"
           numRows="4"
           />
     </children>
