@@ -2,13 +2,13 @@
 <component name="category_screen"
   extends="Group"
   >
+  <script type="text/brightscript" uri="pkg:/components/screens/category_screen.brs" />
   <interface>
-  <field id="category_selected"
+    <field id="category_selected"
           type="assocarray"
           alias="category_list.itemSelected"
-      />
-</interface>
-  <script type="text/brightscript" uri="pkg:/components/screens/category_screen.brs" />
+        />
+  </interface>
   <children>
     <Label
       translation="[75, 150]"
@@ -25,7 +25,6 @@
       <category_node title = "COMEDY" feed_url="http://api.themoviedb.org/3/movie/popular?api_key=4bc08ab955f501a524c27210af4c49f3"/>
       <category_node title = "HORROR" feed_url="http://api.themoviedb.org/3/movie/popular?api_key=4bc08ab955f501a524c27210af4c49f3"/>
     </ContentNode>
-    
   </RadioButtonList>
   </children>
 </component>

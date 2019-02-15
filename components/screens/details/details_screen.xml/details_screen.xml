@@ -11,10 +11,10 @@
 		    alwaysnotify="true"
 		    alias="play_button.buttonSelected" />
 	</interface>
-	<script type="text/brightscript" uri="/details_screen.brs" />
+	<script type="text/brightscript" uri="pkg:/components/screens/details_screen.brs" />
 	<children>
     <Poster
-        id="poster_path"
+        id="thumbnail"
         width="500"
         height="280"
         translation="[200,200]" />
@@ -23,13 +23,13 @@
         text="PLAY"
         translation="[200, 600]" />
     <Label
-        id="original_title"
+        id="title"
         font="font:LargeBoldSystemFont"
         color="0xFFFFFF"
         text=""
         translation="[800,200]" />
     <Label
-        id="overview"
+        id="description"
         font="font:MediumSystemFont"
         color="0xFFFFFF"
         wrap="true"
@@ -37,4 +37,4 @@
         text=""
         translation="[800,300]" />
 	</children>
-</componen
+</component>

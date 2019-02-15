@@ -20,7 +20,7 @@ sub onFeedChanged(obj)
         node.title = item.title
         node.url = item.url
         node.description = item.overview
-        node.HDGRIDPOSTERURL = "http://image.tmdb.org/t/p/w185/"+item.backdrop_path
+        node.HDGRIDPOSTERURL = "http://image.tmdb.org/t/p/w500/"+item.backdrop_path
         node.SHORTDESCRIPTIONLINE1 = item.title
         node.SHORTDESCRIPTIONLINE2 = item.overview
         postercontent.appendChild(node)
