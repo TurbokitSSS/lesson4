@@ -1,7 +1,14 @@
 sub init()
     m.content_grid = m.top.FindNode("content_grid")
     m.header = m.top.FindNode("header")
-end sub  
+	m.top.observeField("visible", "onVisibleChange")
+end sub
+
+sub onVisibleChange()
+	if m.top.visible = true then
+		m.content_grid.setFocus(true)
+	end if
+end sub
 
 sub onFeedChanged(obj)
     feed = obj.getData()
@@ -13,7 +20,7 @@ sub onFeedChanged(obj)
         node.title = item.title
         node.url = item.url
         node.description = item.overview
-        node.HDGRIDPOSTERURL = "http://image.tmdb.org/t/p/w185/"+item.poster_path
+        node.HDGRIDPOSTERURL = "http://image.tmdb.org/t/p/w185/"+item.backdrop_path
         node.SHORTDESCRIPTIONLINE1 = item.title
         node.SHORTDESCRIPTIONLINE2 = item.overview
         postercontent.appendChild(node)

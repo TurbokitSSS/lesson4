@@ -23,7 +23,7 @@
     <ContentNode id = "categories" role = "content" >
       <category_node title = "DRAMA" feed_url="http://api.themoviedb.org/3/movie/popular?api_key=4bc08ab955f501a524c27210af4c49f3"/>
       <category_node title = "COMEDY" feed_url="http://api.themoviedb.org/3/movie/popular?api_key=4bc08ab955f501a524c27210af4c49f3"/>
-      <category_node title = "HORROR" feed_url="http://10.24.12.205/roku_lessons/horror.html"/>
+      <category_node title = "HORROR" feed_url="http://api.themoviedb.org/3/movie/popular?api_key=4bc08ab955f501a524c27210af4c49f3"/>
     </ContentNode>
     
   </RadioButtonList>

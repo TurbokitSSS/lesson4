@@ -1,6 +1,7 @@
 sub init()
   m.top.functionname = "request"
   m.top.response = ""
+  
 end sub
 
 function request()

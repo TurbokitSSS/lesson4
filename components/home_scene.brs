@@ -1,12 +1,23 @@
 function init()
-  ? "[home_scene] init"
-  m.category_screen = m.top.findNode("category_screen")
-  m.content_screen = m.top.findNode("content_screen")
+	? "[home_scene] init"
+	m.category_screen = m.top.findNode("category_screen")
+	m.content_screen = m.top.findNode("content_screen")
+	m.details_screen = m.top.findNode("details_screen")
 
-  m.category_screen.observeField("category_selected", "onCategorySelected")
-  m.category_screen.setFocus(true)
+	m.category_screen.observeField("category_selected", "onCategorySelected")
+	m.content_screen.observeField("content_selected", "onContentSelected")
+
+	m.category_screen.setFocus(true)
 end function
 
+sub onContentSelected(obj)
+    selected_index = obj.getData()
+    ? "content selected_index :";selected_index
+    item = m.content_screen.findNode("content_grid").content.getChild(selected_index)
+    m.details_screen.content = item
+    m.content_screen.visible = false
+    m.details_screen.visible = true
+end sub
 
 function onKeyEvent(key, press) as Boolean
 	? "[home_scene] onKeyEvent", key, press
